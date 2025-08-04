@@ -19,11 +19,13 @@ export const setupMenuToggle = () => {
 }
 
 export const setupMenuStateOnLoad = () => {
-  const menuOpenSaved = localStorage.getItem("menuOpen") === "true"
-  if (menuOpenSaved && window.innerWidth <= MOBILE_BREAKPOINT) {
-    openSideMenu()
+  const isMobile = window.innerWidth <= MOBILE_BREAKPOINT
+
+  if (isMobile) {
+    const menuOpenSaved = localStorage.getItem("menuOpen") === "true"
+    menuOpenSaved ? openSideMenu() : closeSideMenu()
   } else {
-    closeSideMenu()
+    closeSideMenu() // Sempre fecha o menu em desktop
   }
 }
 
