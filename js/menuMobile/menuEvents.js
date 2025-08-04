@@ -1,4 +1,3 @@
-// menuEvents.js
 import {
   getMenuToggleButton,
   getSideMenu,

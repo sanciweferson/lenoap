@@ -162,22 +162,28 @@ window.addEventListener('scroll', function () {
     setupMenuToggle,
     setupMenuStateOnLoad,
     setupMenuResizeHandler,
-    setupMobileLinkClicks // 👈 FALTAVA ESTA LINHA
-  } from "./js/menuMobile/menuEvents.js"
+    setupMobileLinkClicks
+  } from "./js/menuMobile/menuEvents.js";
 
-  import { setupEventListeners, handleDOMContentLoaded } from "./js/themeEvents.js"
-  import { setupSystemThemeObserver } from "./js/themeSystem.js"
+  import {
+    setupEventListeners,
+    handleDOMContentLoaded
+  } from "./js/themeEvents.js"; // ajuste esse caminho se necessário
+
+  import {
+    setupSystemThemeObserver
+  } from "./js/themeSystem.js"; // ajuste esse caminho se necessário
 
   window.addEventListener("DOMContentLoaded", () => {
-    handleDOMContentLoaded()
-    setupEventListeners()
-    setupSystemThemeObserver()
+    handleDOMContentLoaded();
+    setupEventListeners();
+    setupSystemThemeObserver();
 
-    setupMenuToggle()
-    setupMenuStateOnLoad()
-    setupMenuResizeHandler()
-    setupMobileLinkClicks() // 👈 Agora vai funcionar
-  })
+    setupMenuToggle();
+    setupMenuStateOnLoad();
+    setupMenuResizeHandler();
+    setupMobileLinkClicks();
+  });
 </script>
 
 
