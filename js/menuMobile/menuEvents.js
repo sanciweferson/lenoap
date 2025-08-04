@@ -1,3 +1,4 @@
+// menuEvents.js
 import {
   getMenuToggleButton,
   getSideMenu,
@@ -14,18 +15,27 @@ export const setupMenuToggle = () => {
 
   menuToggleButton.addEventListener("click", () => {
     const isOpen = sideMenu.classList.contains("open")
-    isOpen ? closeSideMenu() : openSideMenu()
+    if (isOpen) {
+      closeSideMenu()
+    } else {
+      openSideMenu()
+    }
   })
 }
 
 export const setupMenuStateOnLoad = () => {
   const isMobile = window.innerWidth <= MOBILE_BREAKPOINT
-
+  console.log("setupMenuStateOnLoad - isMobile:", isMobile)
   if (isMobile) {
-    const menuOpenSaved = localStorage.getItem("menuOpen") === "true"
-    menuOpenSaved ? openSideMenu() : closeSideMenu()
+    const menuOpenSaved = localStorage.getItem("menuOpen")
+    console.log("Estado salvo no localStorage:", menuOpenSaved)
+    if (menuOpenSaved === "true") {
+      openSideMenu()
+    } else {
+      closeSideMenu()
+    }
   } else {
-    closeSideMenu() // Sempre fecha o menu em desktop
+    closeSideMenu() // Fecha o menu em desktop
   }
 }
 
