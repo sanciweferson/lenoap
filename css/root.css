@@ -1,0 +1,13 @@
+:root {
+  --primary-color: #08c0dd;
+  --secondary-color: #262431;
+  --tertiary-color: #2f2c3d;
+  
+}
+
+:root.dark {
+  
+  --primary-color: #08c0dd; /* Mantém, pois é vibrante e funciona em fundo escuro */
+  --secondary-color: #272d35;; /* Mais escuro que o original */
+  --tertiary-color: #1f1d2a; /* Tom abaixo do secundário, suave */
+}

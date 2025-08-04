@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/root.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+    <title>Leno App</title>
+    <style>
+        main{
+    
+ 
+padding-top: 6rem;
+
+    }
+  </style>
+  </head>
+  <body>
+  
+
+ <div id="navbar-placeholder"></div>
+<main class="navbar__container">
+  home
+</main>
+      <script>
+    fetch("nav.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("navbar-placeholder").innerHTML = data
+      })
+      .catch(error => console.error("Erro ao carregar o menu:", error))
+  </script>
+    
+<script type="module">
+  import {
+    setupMenuToggle,
+    setupMenuStateOnLoad,
+    setupMenuResizeHandler,
+    setupMobileLinkClicks // 👈 FALTAVA ESTA LINHA
+  } from "./js/menuMobile/menuEvents.js"
+
+  import { setupEventListeners, handleDOMContentLoaded } from "./js/themeEvents.js"
+  import { setupSystemThemeObserver } from "./js/themeSystem.js"
+
+  window.addEventListener("DOMContentLoaded", () => {
+    handleDOMContentLoaded()
+    setupEventListeners()
+    setupSystemThemeObserver()
+
+    setupMenuToggle()
+    setupMenuStateOnLoad()
+    setupMenuResizeHandler()
+    setupMobileLinkClicks() // 👈 Agora vai funcionar
+  })
+</script>
+
+
+<script>
+  // Navigation background on scroll
+window.addEventListener('scroll', function () {
+  const navbar = document.querySelector('.navbar');
+
+  if (window.scrollY > 0) {
+    navbar.classList.add('navbar--scroll');
+  } else {
+    navbar.classList.remove('navbar--scroll');
+  }
+});
+</script>
+  </body>
+</html>
